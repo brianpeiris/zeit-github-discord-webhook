@@ -1,0 +1,8 @@
+{
+  "name": "github-webhook-filter",
+  "license": "MIT",
+  "dependencies": {
+    "body": "^5.1.0",
+    "node-fetch": "^2.3.0"
+  }
+}

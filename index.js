@@ -37,7 +37,7 @@ module.exports = async (req, res) => {
       embeds: [{
         title: pr.title,
         description: paragraphs[0],
-        url: pr.url,
+        url: pr.html_url,
         image: imageUrl ? { url: imageUrl } : null
       }]
     };

@@ -30,13 +30,13 @@ module.exports = async (req, res) => {
 
     const pr = event.pull_request;
 
-    const paragraphs = pr.body.split("\r\n\r\n").filter(l => l.trim());
-    const imageUrl = paragraphs[1] && paragraphs[1].includes("![") && paragraphs[1].split(/[()]/)[1];
+    const paragraphs = pr.body;
+    const imageUrl = paragraphs && paragraphs.includes("![") && paragraphs.split(/[()]/)[1];
 
     const body = {
       embeds: [{
         title: pr.title,
-        description: paragraphs[0],
+        description: paragraphs,
         url: pr.html_url,
         image: imageUrl ? { url: imageUrl } : null
       }]

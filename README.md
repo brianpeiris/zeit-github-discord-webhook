@@ -1,9 +1,10 @@
 # zeit-github-discord-webhook
 
-A [Zeit Now](https://zeit.co/now) lambda that filters GitHub webhooks for Discord.
+A [Zeit Now](https://zeit.co/now) lambda that filters pull requests from GitHub webhooks and relays them to Discord.
 
 ## Usage
 
+1. Copy thie `.env.defaults` file to `.env` and configure to your liking.
 1. Deploy to Zeit Now:
     - `npm install -g now`
     - `git clone https://github.com/brianpeiris/zeit-github-discord-webhook`

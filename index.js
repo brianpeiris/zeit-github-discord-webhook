@@ -33,17 +33,17 @@ module.exports = async (req, res) => {
 
   const firstImageUrl = body && body.includes("![") && body.split(/[()]/)[1];
 
-  let description = "";
-
-  if (process.env.USE_ENTIRE_BODY) {
+  let description;
+  if (process.env.USE_ENTIRE_BODY === "true") {
     description = body;
   } else {
     const paragraphs = body.split("\r\n\r\n").filter(l => l.trim());
     description = paragraphs[0];
   }
+  description = description || "";
 
   // Strip images
-  description = description.replace(/!\[.*\](.+)(\r\n\r\n)?/g, "").trim()
+  description = description.replace(/!\[.*\](.+)/g, "").trim()
 
   const postBody = {
     embeds: [{

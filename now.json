@@ -2,5 +2,8 @@
   "version": 2,
   "builds": [
     { "src": "index.js", "use": "@now/node" }
-  ]
+  ],
+  "env": {
+    "USE_ENTIRE_BODY": "false"
+  }
 }

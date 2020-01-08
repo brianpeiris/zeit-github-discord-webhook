@@ -1,6 +1,7 @@
 {
   "name": "github-webhook-filter",
   "license": "MIT",
+  "engines": { "node": "12.x" },
   "dependencies": {
     "body": "^5.1.0",
     "node-fetch": "^2.3.0"

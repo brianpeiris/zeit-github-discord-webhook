@@ -13,7 +13,7 @@ function bodyParser(body, useEntireBody) {
   description = description || "";
 
   // Strip images
-  description = description.replace(/\s*!\[.*\]\(.+\)\s*/g, " ").trim()
+  description = description.replace(/\s*!\[.*\]\(.+\)\s*/g, " ").trim();
 
   return { description, firstImageUrl };
 }

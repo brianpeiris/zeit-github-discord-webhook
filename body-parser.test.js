@@ -1,3 +1,5 @@
+/* global test expect */
+
 const bodyParser = require("./body-parser");
 
 test("simple description", () => {

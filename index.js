@@ -4,6 +4,8 @@ const { promisify } = require("util");
 let jsonBody = require("body/json");
 jsonBody = promisify(jsonBody);
 
+const bodyParser = require("./body-parser");
+
 const eventFilter = ["pull_request"];
 const actionFilter = ["closed", "labeled"];
 const labelFilter = ["whats new"];
@@ -31,19 +33,7 @@ module.exports = async (req, res) => {
 
   const { body } = pr;
 
-  const firstImageUrl = body && body.includes("![") && body.split(/[()]/)[1];
-
-  let description;
-  if (process.env.USE_ENTIRE_BODY === "true") {
-    description = body;
-  } else {
-    const paragraphs = body.split("\r\n\r\n").filter(l => l.trim());
-    description = paragraphs[0];
-  }
-  description = description || "";
-
-  // Strip images
-  description = description.replace(/!\[.*\](.+)/g, "").trim()
+  const { description, firstImageUrl } = bodyParser(body, process.env.USE_ENTIRE_BODY === "true")
 
   const postBody = {
     embeds: [{

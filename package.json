@@ -1,9 +1,17 @@
 {
   "name": "github-webhook-filter",
   "license": "MIT",
-  "engines": { "node": "12.x" },
+  "engines": {
+    "node": "12.x"
+  },
+  "scripts": {
+    "test": "jest"
+  },
   "dependencies": {
     "body": "^5.1.0",
     "node-fetch": "^2.3.0"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
   }
 }
